@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="main-body">
+        <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'logout' %}">Logout</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'profile' %}">My profile</a></li>
+            </ol>
+        </nav>
+
+        {% for user in users %}
+
+        <!-- /Breadcrumb -->
+
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                    {% if user.photo %}
+                    <img src="{{user.photo.url}}" alt="Admin" class="rounded-circle" width="150">
+                    {% else %}
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    {% endif %}
+                    <div class="mt-3">
+                    <h4>{{user.first_name}} {{user.last_name}}</h4>
+                    {% if user.is_active %}
+                    <p class="text-secondary mb-1">active</p>
+                    {% else %}
+                    <p class="text-secondary mb-1">not active</p>
+                    {% endif %}
+                    <p class="text-muted font-size-sm">{{user.address}}</p>
+                    <button class="btn btn-primary">Follow</button>
+                    <button class="btn btn-outline-primary">Message</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
