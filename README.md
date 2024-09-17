@@ -20,8 +20,8 @@ Follow these steps to set up the project on your local machine:
 
 1. **Clone the repository:**
     ```sh
-    git clone <repository-url>
-    cd <repository-directory>
+    git clone "https://github.com/alishermutalov/USER_DASHBOARD.git"
+    cd USER_DASHBOARD
     ```
 
 2. **Create a virtual environment:**
